@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RootArt</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .carousel-inner img {
+        width: 100%;
+        height: 100%;
+    }
+    </style>		
+    <script>
+        $(document).ready(function () {
+      // Volume of cone
+        
+        $('#bRadiusValue').html($('#bRadius').val());
+        $('#cHeightValue').html( $('#cHeight').val());
+        $('#volumeResult').html(volumeOfCone($('#bRadius').val(),  $('#cHeight').val()) + " cm&sup3;");
+
+        $('#bRadius').change(() => {
+          $('#bRadiusValue').html($('#bRadius').val());
+          $('#volumeResult').html(volumeOfCone($('#bRadius').val(),  $('#cHeight').val()) + " cm&sup3;");
+        });
+
+        $('#cHeight').change(() => {
+          $('#cHeightValue').html($('#cHeight').val());
+          $('#volumeResult').html(volumeOfCone($('#bRadius').val(),  $('#cHeight').val()) + " cm&sup3;");
+        });
+
+      //Surface area of ​​cone
+        $('#bRadiusValueA').html($('#bRadiusA').val());
+        $('#sHeightValue').html($('#sHeight').val());
+        $('#areaResult').html(areaOfCone($('#bRadiusA').val(), $('#sHeight').val()) + " cm&sup2;");
+
+        $('#bRadiusA').change(() => {
+          $('#bRadiusValueA').html($('#bRadiusA').val());
+          $('#areaResult').html(areaOfCone($('#bRadiusA').val(), $('#sHeight').val()) + " cm&sup2;");
+        });
+
+        $('#sHeight').change(() => {
+          $('#sHeightValue').html($('#sHeight').val());
+          $('#areaResult').html(areaOfCone($('#bRadiusA').val(), $('#sHeight').val()) + " cm&sup2;");
+        });
+      });
+
+    const volumeOfCone = (r, H) => 1 / 3 * Math.PI * Math.pow(r, 3) * H;
+    const areaOfCone = (r, l) => Math.PI * r * (r + l);
+
+    </script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm bg-white navbar-light justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="gallery.html">Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Contact</a>
+      </li>
+      <li class="nav-item active ">
+        <a class="nav-link" href="exercise2.html">Exercise 2</a>
+      </li>
+    </ul>
+  </nav>
+  <br>
+  
+
+  <div class="container">
+    <div class="row text-center p-3">
+      <h1>Volume of cone</h1>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        
+          <form>
+            <div class="form-group">
+              <label for="bRadius">Base radius: <span id="bRadiusValue"></span> cm</label>
+              <input type="number" class="form-control-range" id="bRadius" min="0.1" max="10" value="1" step="0.1">
+              <label for="cHeight">Cone height: <span id="cHeightValue"></span> cm</label>
+              <input type="number" class="form-control-range" id="cHeight" min="0.1" max="15" value="1" step="0.1">
+            </div>
+          </form>
+          <div class="alert alert-dark">
+            <strong>Volume of cone: </strong><span id="volumeResult"></span>
+          </div>
+       
+      </div>
+      
+    </div>
+    <div class="container text-center pt-4" id="render">
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row text-center p-3">
+      <h1>Surface area of ​​cone</h1>
+    </div>
+    <div class="row">
+      <div class="col-8">
+          <form>
+            <div class="form-group">
+              <label for="bRadiusA">Base radius: <span id="bRadiusValueA"></span> cm</label>
+              <input type="number" class="form-control-range" id="bRadiusA" min="0.1" max="10" value="1" step="0.1">
+              <label for="sHeight">Slant height: <span id="sHeightValue"></span> cm</label>
+              <input type="number" class="form-control-range" id="sHeight" min="4" max="15" value="4" step="0.1">
+            </div>
+          </form>
+          <div class="alert alert-dark">
+          <strong>Surface area of ​​cone: </strong><span id="areaResult"></span>
+        </div>
+      </div>  
+    </div>
+    <div class="container text-center pt-4" id="render">
+
+    </div>
+  </div>
+
+
+
+<nav class="navbar fixed-bottom navbar-expand-sm bg-white navbar-light justify-content-center">
+	<ul class="navbar-nav">
+	  <li class="nav-item">
+		<a class="nav-link" href="https://www.facebook.com/Dwa-%C5%9Bwiaty-Sko-Haj-100285254909366">Facebook</a>
+	  </li>
+	</ul>
+</nav>
+<br>
+<br>
+
+</body>
+</html>
+
+
+
+
+
